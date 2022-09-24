@@ -1,7 +1,7 @@
 body {
     font-family: 'Press Start 2P', cursive;
     background-color: rgb(255, 173, 173);
-    color: rgb(98, 173, 223);
+    color: #62addf;
     text-align: center;
 }
 
@@ -17,7 +17,7 @@ body {
     grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
 
-.grid-item {
+.grid-element {
     padding: 1em;
     border: 1px solid rgb(98, 173, 223);
     text-align: center;
