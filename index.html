@@ -14,36 +14,27 @@
     </header>
 
     <div id="container">
-        <div class="container-two">
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
+        <div class="btns">
+            <button class="colorPicker"><input type="color" value="#6a5acd"></button>
+            <button class="color">main color</button>
+            <button class="rainbow">rainbow color</button>
+            <button class="random">random color</button>
+            <button class="eraser">eraser</button>
+            <button class="clear">clear</button>
         </div>
+
+        <div class="sizeValue">16x16</div>
+        <input class="sizeSlider" type="range" min="1" max="64" value="16" class="slider" id="myRange">
+
+        <div id="grid" class="grid-container"></div>
+
     </div>
 
-    <div class="btns">
-        <button class="color"><input type="color" id="colorPicker" value="#6a5acd"></button>
-        <button class="rainbow">rainbow color</button>
-        <button class="random">random color</button>
-        <button class="eraser">eraser</button>
-        <button class="clear">clear</button>
-        <button class="sizing">pick a size</button>
-    </div>
-
-    <footer>Created by Aaron Tang</footer>
+    <footer class="footer">Created by Aaron Tang</footer>
+    <a href="https://github.com/notwhitelisted" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> 
     <script src="script.js"></script>
 </body>
 </html>
