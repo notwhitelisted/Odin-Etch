@@ -7,25 +7,29 @@ let currentMode = defaultMode
 let currentSize = defaultSize
 
 //Variables Declarations
-const colorPicker = document.querySelector('colorPicker');
-const colorBtn = document.querySelector('color');
-const rainbowBtn = document.querySelector('rainbow');
-const randomBtn = document.querySelector('random');
-const eraserBtn = document.querySelector('eraser');
-const clearBtn = document.querySelector('clear');
-const sizeValue = document.querySelector('sizeValue');
-const sizeSlider = document.querySelector('sizeSlider');
-const grid = document.querySelector('grid');
+const colorPicker = document.querySelector('.colorPicker');
+const colorBtn = document.querySelector('.color');
+const rainbowBtn = document.querySelector('.rainbow');
+//const randomBtn = document.querySelector('.random');
+const eraserBtn = document.querySelector('.eraser');
+const clearBtn = document.querySelector('.clear');
+const sizeValue = document.querySelector('.sizeValue');
+const sizeSlider = document.querySelector('.sizeSlider');
+const grid = document.querySelector('.grid');
 
 //DOM Manipulation
-colorPicker.oninput = (e) => setCurrentColor(e.target.value)
-colorBtn.onclick = () => setCurrentMode('color')
-rainbowBtn.onclick = () => setCurrentMode('rainbow')
-//randomBtn.onclick = () => 
-eraserBtn.onclick = () => setCurrentMode('eraser')
-clearBtn.onclick = () => reloadGrid()
-sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value)
-sizeSlider.onchange = (e) => changeSize(e.target.value)
+colorPicker.oninput = (e) => setCurrentColor(e.target.value);
+colorBtn.onclick = () => setCurrentMode('color');
+rainbowBtn.onclick = () => setCurrentMode('rainbow');
+//randomBtn.onclick = () => setCurrentMode('random')
+eraserBtn.onclick = () => setCurrentMode('eraser');
+clearBtn.onclick = () => reloadGrid();
+sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
+sizeSlider.onchange = (e) => changeSize(e.target.value);
+
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
 
 //Functions
 function setCurrentColor(newColor) {
@@ -33,6 +37,7 @@ function setCurrentColor(newColor) {
 }
 
 function setCurrentMode(newMode) {
+    activateButton(newMode)
     currentMode = newMode
 }
 
@@ -86,10 +91,32 @@ function changeColor(e) {
     }
 }
 
-function randomColor() {
+//function randomColor() {
 
+//}
+
+function activateButton(newMode) {
+    if (currentMode === 'rainbow') {
+        rainbowBtn.classList.remove('active')
+    } else if (currentMode === 'color') {
+        colorBtn.classList.remove('active') 
+    } else if (currentMode === 'eraser') {
+        eraserBtn.classList.remove('active')
+    }
+
+    if (newMode === 'rainbow') {
+        rainbowBtn.classList.add('active') 
+    } else if (newMode === 'color') {
+        colorBtn.classList.add('active')
+    } else if (newMode === 'eraser') {
+        eraserBtn.classList.remove('active')
+    }
 }
 
+window.onload = () => {
+    makeGrid(defaultSize)
+    activateButton(defaultMode)
+}
 // //Picking a Color Function
 // function pickColor() {
 //     let colors = document.querySelector('color').value;
